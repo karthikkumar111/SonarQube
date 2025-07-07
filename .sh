@@ -19,6 +19,6 @@ cd /opt
 ll
 cd sonar
 cd bin
-cd linux
+cd linux*
 ./sonar.sh start
 ./sonar status
