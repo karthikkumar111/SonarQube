@@ -1,0 +1,20 @@
+sudo amazon-linux-extras install java-openjdk11 -y
+sudo java -version
+cd /opt
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip
+unzip sonarqube-8.9.10.61524.zip
+mv sonarqube-8.9.10.61524 sonarqube
+sudo adduser sonar
+sudo id sonar
+passwd sonar
+sudo chown -R sonar:sonar sonarqube
+
+#Update SonarQube Configuration
+By default, SonarQube will run as a root user. You need to update the Sonar user under /opt/sonarqube/bin/linux-x86-64/sonar.sh.
+Uncomment the RUN_AS_USER parameter and set it to the sonar user:
+RUN_AS_USER="sonar"
+
+
+sudo su - sonar
+sh /opt/sonarqube/bin/linux-x86-64/sonar.sh start
+sh sonar.sh status
