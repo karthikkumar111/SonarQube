@@ -7,6 +7,7 @@ mv sonarqube-8.9.10.61524 sonarqube
 sudo adduser sonar
 sudo id sonar
 passwd sonar
+password = karthik111
 sudo chown -R sonar:sonar sonarqube
 
 #Update SonarQube Configuration
