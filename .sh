@@ -9,6 +9,11 @@ unzip sonarqube-9.9.5.90363.zip
 mv ssonarqube-9.9.5.90363 sonar
 #useradd sonar
 useradd sonar
+
+#Creat ethe password for sonar user
+passwd sonar
+type password = karthik111
+
 #change owners
 chown sonar:sonar filename  -R
 #give full permissions
