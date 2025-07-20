@@ -4,9 +4,7 @@
 set -e
 
 echo "🔧 Installing Java 11 via Amazon Linux Extras..."
-sudo amazon-linux-extras enable java-openjdk11
-sudo yum clean metadata
-sudo yum install -y java-11-openjdk java-11-openjdk-devel
+sudo amazon-linux-extras install java-openjdk11 -y
 
 echo " Java version:"
 java -version
@@ -15,7 +13,8 @@ echo " Changing to /opt directory..."
 cd /opt
 
 echo " Downloading SonarQube 8.9.10..."
-sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip
+
 
 echo " Extracting SonarQube..."
 sudo unzip sonarqube-8.9.10.61524.zip
@@ -35,8 +34,6 @@ sudo sed -i 's/^#RUN_AS_USER=/RUN_AS_USER=sonar/' /opt/sonarqube/bin/linux-x86-6
 
 echo " Starting SonarQube as sonar user..."
 sudo -u sonar /opt/sonarqube/bin/linux-x86-64/sonar.sh start
-
-sleep 5
 
 echo " Checking SonarQube status..."
 sudo -u sonar /opt/sonarqube/bin/linux-x86-64/sonar.sh status
