@@ -1,4 +1,4 @@
-sudo amazon-linux-extras install java-openjdk11 -y
+sudo yum install -y java-17-amazon-corretto-devel
 sudo java -version
 cd /opt
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip
