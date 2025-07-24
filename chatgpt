@@ -4,7 +4,7 @@
 set -e
 
 echo "🔧 Installing Java 11 via Amazon Linux Extras..."
-sudo amazon-linux-extras install java-openjdk11 -y
+sudo yum install -y java-17-amazon-corretto-devel
 
 echo " Java version:"
 java -version
